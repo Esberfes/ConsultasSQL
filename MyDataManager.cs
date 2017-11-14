@@ -10,11 +10,11 @@ namespace ConsultasSQL
 {
     class MyDataManager
     {
-        public static void Serialize<T>(string filename, User pers)
+        public static void Serialize<T>(string filename, T obj)
         {
             XmlSerializer ser = new XmlSerializer(typeof(T));
             TextWriter writer = new StreamWriter(filename + ".xml");
-            ser.Serialize(writer, pers);
+            ser.Serialize(writer, obj);
             writer.Close();
         }
         public void Deserialize(string filename)
